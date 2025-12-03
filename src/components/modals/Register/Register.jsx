@@ -127,7 +127,10 @@ const Register = () => {
       aria-modal="true"
       role="dialog"
     >
-      <div className="modal-dialog modal-dialog-custom">
+      <div
+        className="modal-dialog modal-dialog-custom"
+        style={{ maxWidth: "100%" }}
+      >
         <div className="login_box justify-content-center" ref={registerRef}>
           <div className="login_leftimg">
             <img

@@ -126,7 +126,10 @@ const Login = () => {
       aria-modal="true"
       role="dialog"
     >
-      <div className="modal-dialog modal-dialog-custom">
+      <div
+        className="modal-dialog modal-dialog-custom"
+        style={{ maxWidth: "100%" }}
+      >
         <div className="login_box" ref={loginRef}>
           <div className="login_leftimg">
             <img
@@ -271,7 +274,7 @@ const Login = () => {
                 }}
               />
             </div>
-            <div className="col-12 form_mob_align">
+            <div className="col-12 form_mob_align" style={{ flex: "0 0 auto" }}>
               <div
                 className="submit-loader text-center"
                 id="login_loader"

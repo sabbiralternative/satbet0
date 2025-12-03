@@ -173,7 +173,7 @@ button.btn.signup_btn:hover {
 
 .navbar-nav li::after {
   content: "";
-  border-right: var(--sb_px2) solid #be8e00;
+  /* border-right: var(--sb_px2) solid #be8e00; */
   line-height: 1;
   position: var(--position_absolute);
   top: 0px;

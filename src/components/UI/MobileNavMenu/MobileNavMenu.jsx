@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const MobileNavMenu = () => {
   return (
     <div
@@ -7,11 +9,7 @@ const MobileNavMenu = () => {
     >
       <ul className="navbar-nav nav-mob-align navbar_menu_align position-relative">
         <li className="nav-item">
-          <a
-            className="nav-link active"
-            aria-current="page"
-            href="https://www.satbet0.in/exchange"
-          >
+          <Link className="nav-link active" aria-current="page" to="/exchange">
             <div className="nav_menus">
               <img
                 src="https://asset.satbet.com/images/exchange.gif"
@@ -21,14 +19,10 @@ const MobileNavMenu = () => {
               />
               <p>Exchange</p>
             </div>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a
-            className="nav-link"
-            aria-current="page"
-            href="https://www.satbet0.in/sportsbook"
-          >
+          <Link className="nav-link" aria-current="page" to="/sportsbook">
             <div className="nav_menus">
               <img
                 src="https://asset.satbet.com/images/sports.gif"
@@ -37,14 +31,10 @@ const MobileNavMenu = () => {
               />
               <p>Sports</p>
             </div>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a
-            className="nav-link"
-            aria-current="page"
-            href="https://www.satbet0.in/casino-games"
-          >
+          <Link className="nav-link" aria-current="page" to="/casino-games">
             <div className="nav_menus">
               <img
                 src="https://asset.satbet.com/images/casino.gif"
@@ -53,13 +43,13 @@ const MobileNavMenu = () => {
               />
               <p>Casino</p>
             </div>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link"
             aria-current="page"
-            href="https://www.satbet0.in/live-casino-games"
+            to="/live-casino-games"
           >
             <div className="nav_menus">
               <img
@@ -69,14 +59,10 @@ const MobileNavMenu = () => {
               />
               <p>Live Casino</p>
             </div>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a
-            className="nav-link"
-            aria-current="page"
-            href="https://www.satbet0.in/promotions"
-          >
+          <Link className="nav-link" aria-current="page" to="/promotions">
             <div className="nav_menus">
               <img
                 src="https://asset.satbet.com/images/promo.gif"
@@ -86,7 +72,7 @@ const MobileNavMenu = () => {
               />
               <p>Promotions</p>
             </div>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

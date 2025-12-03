@@ -25,7 +25,7 @@ const Navbar = () => {
           <nav className="navbar navbar-expand">
             <div className="nav_logo_btngrp_align">
               <Link
-                style={{ display: "block" }}
+                style={{ display: "block", marginLeft: "0px" }}
                 className="navbar-brand"
                 to="/"
               >
