@@ -5,15 +5,19 @@ import HowToPlay from "../../components/modules/Home/HowToPlay";
 import NewGames from "../../components/modules/Home/NewGames";
 import PopularCasinoGames from "../../components/modules/Home/PopularCasinoGames";
 import TopSports from "../../components/modules/Home/TopSports";
+import WhatsApp from "../../components/modules/Home/WhatsApp";
+import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
 
 const Home = () => {
+  const { data: lotusLobby } = useLotusHomeLobby();
   return (
     <div>
+      <WhatsApp />
       <Hero />
       <TopSports />
-      <PopularCasinoGames />
+      <GameProvider casinoProviders={lotusLobby?.casinoProviders} />
       <NewGames />
-      <GameProvider />
+      <PopularCasinoGames popularGames={lotusLobby?.popularGames} />
       <HowToPlay />
       <ClubLoyaltyDownloadApp />
     </div>

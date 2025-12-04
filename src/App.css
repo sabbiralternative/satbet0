@@ -701,7 +701,7 @@ div:where(.swal2-container) div:where(.swal2-actions) {
 .android-popup {
   width: 100%;
   font-family: Helvetica Neue, sans-serif, BBAlpha Sans;
-  background: var(--menu-bg);
+  background: #0c2842;
   padding: 5px;
   display: flex;
   align-items: center;

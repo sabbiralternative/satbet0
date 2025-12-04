@@ -1,9 +1,12 @@
 import { useDispatch } from "react-redux";
 import { setGroup } from "../../../redux/features/global/globalSlice";
+import { useNavigate } from "react-router-dom";
 
 const LeftSidebar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleChangeGroup = (g) => {
+    navigate("/exchange");
     dispatch(setGroup(g));
   };
   return (

@@ -1,25 +1,62 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setShowAppPopUp,
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
 import Login from "../../modals/Login/Login";
 import { useLogo } from "../../../context/ApiProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Register from "../../modals/Register/Register";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
+import { Settings } from "../../../api";
+import Notification from "./Notification";
+import AppPopup from "./AppPopUp";
 
 const Navbar = () => {
+  const location = useLocation();
   const { logo } = useLogo();
   const dispatch = useDispatch();
-  const { showLoginModal, showRegisterModal, showForgotPasswordModal } =
-    useSelector((state) => state.global);
+  const {
+    showLoginModal,
+    showRegisterModal,
+    showForgotPasswordModal,
+    showAppPopUp,
+    windowWidth,
+  } = useSelector((state) => state.global);
+
+  useEffect(() => {
+    const closePopupForForever = localStorage.getItem("closePopupForForever");
+    if (location?.state?.pathname === "/apk" || location.pathname === "/apk") {
+      localStorage.setItem("closePopupForForever", true);
+      localStorage.removeItem("installPromptExpiryTime");
+    } else {
+      if (!closePopupForForever) {
+        const expiryTime = localStorage.getItem("installPromptExpiryTime");
+        const currentTime = new Date().getTime();
+
+        if ((!expiryTime || currentTime > expiryTime) && Settings?.apkLink) {
+          localStorage.removeItem("installPromptExpiryTime");
+
+          dispatch(setShowAppPopUp(true));
+        }
+      }
+    }
+  }, [
+    dispatch,
+    windowWidth,
+    showAppPopUp,
+    location?.state?.pathname,
+    location.pathname,
+  ]);
   return (
     <Fragment>
       {showLoginModal && <Login />}
       {showRegisterModal && <Register />}
       {showForgotPasswordModal && <ForgotPassword />}
+      <Notification />
+      {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && <AppPopup />}
       <div className="navbar_sec">
         <div className="container-fluid">
           <nav className="navbar navbar-expand">

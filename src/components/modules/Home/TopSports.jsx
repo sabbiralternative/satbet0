@@ -1,4 +1,15 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setGroup } from "../../../redux/features/global/globalSlice";
+
 const TopSports = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleNavigate = (g) => {
+    dispatch(setGroup(g));
+    navigate("/exchange");
+  };
   return (
     <div className="bt_common_align" id="top_sports_slider_box">
       <div className="container-fluid">
@@ -22,10 +33,7 @@ const TopSports = () => {
               aria-label="1 / 8"
               style={{ width: "191.923px", marginRight: "10px" }}
             >
-              <a
-                href="https://www.satbet0.in/exchange"
-                className="sport_category"
-              >
+              <a onClick={() => handleNavigate(4)} className="sport_category">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAAEXAQMAAADMQKkgAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAB5JREFUeNrtwYEAAAAAw6D5U9/gBFUBAAAAAAAAPAMcVgAB6AAwugAAAABJRU5ErkJggg=="
                   className="group-480987684 img-fluid"
@@ -43,10 +51,7 @@ const TopSports = () => {
               aria-label="2 / 8"
               style={{ width: "191.923px", marginRight: "10px" }}
             >
-              <a
-                href="https://www.satbet0.in/sportsbook"
-                className="sport_category"
-              >
+              <a onClick={() => handleNavigate(1)} className="sport_category">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAAEXAQMAAADMQKkgAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAB5JREFUeNrtwYEAAAAAw6D5U9/gBFUBAAAAAAAAPAMcVgAB6AAwugAAAABJRU5ErkJggg=="
                   className="group-48099031 img-fluid"
@@ -64,10 +69,7 @@ const TopSports = () => {
               aria-label="3 / 8"
               style={{ width: "191.923px", marginRight: "10px" }}
             >
-              <a
-                href="https://www.satbet0.in/sportsbook"
-                className="sport_category"
-              >
+              <a onClick={() => handleNavigate(2)} className="sport_category">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAAEXAQMAAADMQKkgAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAB5JREFUeNrtwYEAAAAAw6D5U9/gBFUBAAAAAAAAPAMcVgAB6AAwugAAAABJRU5ErkJggg=="
                   className="group-48099032 img-fluid"

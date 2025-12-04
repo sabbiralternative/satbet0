@@ -30,6 +30,7 @@ const Group = () => {
       setCategories(sortedCategories);
     }
   }, [data]);
+
   return (
     <div>
       <div className="row m-0">
@@ -44,7 +45,11 @@ const Group = () => {
                 >
                   <SliderCategory />
                   <div className="sport-highlight-content">
-                    <div id="tabsJustifiedContent" className="tab-content">
+                    <div
+                      id="tabsJustifiedContent"
+                      className="tab-content"
+                      style={{ display: "block" }}
+                    >
                       <div className="tab-pane fade active show">
                         <div className="container-event-info p-0">
                           {categories?.map((category) => {
@@ -58,6 +63,7 @@ const Group = () => {
                                 obj[key] = value;
                                 return obj;
                               }, {});
+
                             return (
                               <Fragment key={category}>
                                 {data &&

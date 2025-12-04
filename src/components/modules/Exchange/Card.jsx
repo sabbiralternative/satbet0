@@ -5,13 +5,14 @@ const Card = ({ data, keys }) => {
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
   };
+
   return (
     <div
       onClick={() => navigateGameList(keys)}
       className="row vevent align-items-center valign-wrapper markets market-data"
     >
       {data?.[keys]?.inPlay === 1 ? (
-        <span className="date-span-color d-md-none">
+        <span className="date-span-color md:hidden">
           <span className="align-items-center d-inline-flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@ const Card = ({ data, keys }) => {
           {data?.[keys]?.date}
         </span>
       ) : (
-        <span className="date-span-color d-md-none">
+        <span className="date-span-color md:hidden">
           <font dir="auto" style={{ verticalAlign: "inherit" }}>
             <font dir="auto" style={{ verticalAlign: "inherit" }}>
               {data?.[keys]?.date}
@@ -186,8 +187,8 @@ const Card = ({ data, keys }) => {
               One Day Internationals{" "}
             </div> */}
           </div>
-          <div className="align-items-center col-md-3 col-xl-3 justify-content-end px-0 d-md-flex d-none">
-            <div className="tag-counters d-none d-md-flex col-md-3 justify-content-end">
+          <div className="align-items-center col-md-3 col-xl-3 justify-content-end px-0 md:flex hidden">
+            <div className="tag-counters hidden md:flex col-md-3 justify-content-end">
               <div className="tag-item notranslate" title="Manual Odds">
                 <div className="tag-counter"> 1 </div>
                 <div className="tag-name">B</div>

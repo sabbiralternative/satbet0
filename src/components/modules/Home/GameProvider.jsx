@@ -1,4 +1,19 @@
-const GameProvider = () => {
+import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
+
+const GameProvider = ({ casinoProviders }) => {
+  const ref = useRef();
+  const navigate = useNavigate();
+  const sortedData =
+    casinoProviders &&
+    casinoProviders?.length > 0 &&
+    casinoProviders?.sort((a, b) => a.sort - b.sort);
+
+  const handleNavigate = (game) => {
+    navigate(`/game-provider/${game?.game_name}/${game?.game_id}`);
+  };
+
   return (
     <div className="bt_common_align  game_prvider_align">
       <div className="container-fluid">
@@ -7,7 +22,8 @@ const GameProvider = () => {
           <div className="swiper_btn_sec position-relative d-flex align-items-center">
             <div className="swiper-pagination-section">
               <div
-                className="swiper-button-prev swiper-button-prev4 swiper-button-disabled"
+                onClick={() => scrollToLeft(ref)}
+                className="swiper-button-prev swiper-button-prev4 "
                 tabIndex={-1}
                 role="button"
                 aria-label="Previous slide"
@@ -24,6 +40,7 @@ const GameProvider = () => {
                 />
               </div>
               <div
+                onClick={() => scrollToRight(ref)}
                 className="swiper-button-next swiper-button-next4"
                 tabIndex={0}
                 role="button"
@@ -41,218 +58,53 @@ const GameProvider = () => {
                 />
               </div>
             </div>
-            <a
-              href="https://www.satbet0.in/casino-games"
-              className="see_more_btn"
-            >
+            <Link to="/casino-games" className="see_more_btn">
               See All
-            </a>
+            </Link>
           </div>
         </div>
-        <div className="swiper-container double_layer swiper-initialized swiper-horizontal">
+        <div
+          ref={ref}
+          className="swiper-container double_layer swiper-initialized swiper-horizontal"
+        >
           <div
             className="swiper-wrapper"
             id="game_provider_slider"
             aria-live="polite"
           >
-            <div
-              className="swiper-slide providers_slider swiper-slide-active"
-              role="group"
-              aria-label="1 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/live-casino-games/evolution">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-4 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Evolution</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider swiper-slide-next"
-              role="group"
-              aria-label="2 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/live-casino-games/ezugi">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-5 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Ezugi</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="3 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/casino-games/rtg-slots">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-8 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">RTG Slots</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="4 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/live-casino-games/supernowa">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-10 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Supernowa</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="5 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/casino-games">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-2 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Aura</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="6 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/live-casino-games/7-mojo">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-1 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">7mojos</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="7 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/casino-games">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-7 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Pragmatic Play</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="8 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/casino-games/smartsoft">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-9 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Smartsoft</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="9 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/casino-games/only-play">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-6 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">Only Play</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="10 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/casino-games">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">XPG</p>
-              </a>
-            </div>
-            <div
-              className="swiper-slide providers_slider"
-              role="group"
-              aria-label="11 / 11"
-              style={{ width: "186.875px", marginRight: "10px" }}
-            >
-              <a href="https://www.satbet0.in/live-casino-games/awc">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAABeAQMAAAAkOgVnAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUeNpjYBgFo2AUjIJRMApGEgAABvoAAVpwYDkAAAAASUVORK5CYII="
-                  className="providers-img-3 img-fluid"
-                  loading="lazy"
-                  alt="icon"
-                  width={141}
-                  height={94}
-                />
-                <p className="provider_name">AWC</p>
-              </a>
-            </div>
+            {sortedData?.map((game, idx) => {
+              return (
+                <div
+                  onClick={() => handleNavigate(game)}
+                  key={idx}
+                  className="swiper-slide providers_slider swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 11"
+                  style={{
+                    width: "186.875px",
+                    marginRight: "10px",
+                    height: "140px",
+                  }}
+                >
+                  <a className="bg-[#e0e0e0] p-3 rounded-md h-full flex flex-col justify-between">
+                    <img
+                      style={{
+                        backgroundImage: "none",
+                        height: "70px",
+                        objectFit: "contain",
+                      }}
+                      src={game?.url_thumb}
+                      className="providers-img-4 img-fluid"
+                      loading="lazy"
+                      alt="icon"
+                      width={141}
+                      height={94}
+                    />
+                    <p className="provider_name">{game?.game_name}</p>
+                  </a>
+                </div>
+              );
+            })}
           </div>
           <span
             className="swiper-notification"

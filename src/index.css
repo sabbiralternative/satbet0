@@ -487,3 +487,17 @@ html * {
     transform: rotate(360deg);
   }
 }
+
+.marquee-scroll {
+  animation: marquee linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
